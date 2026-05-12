@@ -103,11 +103,10 @@ The lab also highlighted the tradeoff between voltage regulation and efficiency.
 ac-dc-regulated-power-supply/
 ├── README.md
 ├── writeup/
-│   └── ECE_2201_Lab_2_Diode_Applications.pdf
-├── images/
-│   ├── half_wave_rectifier.png
-│   ├── full_wave_rectifier.png
-│   ├── zener_regulator.png
-│   └── lm7805_regulator.png
-└── simulations/
-    └── multisim_screenshots/
+│   └── ECE 2201 Lab 2.pdf - Diode_Applications
+│       └──images/
+│           ├── half_wave_rectifier.png
+│           ├── full_wave_rectifier.png
+│           ├── zener_regulator.png
+│           └── lm7805_regulator.png
+└──
