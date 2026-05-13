@@ -96,17 +96,3 @@ Measured LM7805 efficiency values included approximately 6.94% for a 1 kΩ load 
 This project showed how each stage of a power supply improves the quality of the output voltage. The rectifier converts AC to pulsating DC, the capacitor reduces ripple, and the regulator improves voltage stability under changing loads.
 
 The lab also highlighted the tradeoff between voltage regulation and efficiency. While both the Zener diode and LM7805 helped stabilize the output, both dissipated excess power as heat. The LM7805 performed better than the Zener regulator, especially under heavier load conditions, but still showed the efficiency limitations of linear regulation.
-
-## Repository Contents
-
-```text
-ac-dc-regulated-power-supply/
-├── README.md
-├── writeup/
-│   └── ECE 2201 Lab 2.pdf - Diode_Applications
-│       └──images/
-│           ├── half_wave_rectifier.png
-│           ├── full_wave_rectifier.png
-│           ├── zener_regulator.png
-│           └── lm7805_regulator.png
-└──
