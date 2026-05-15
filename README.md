@@ -68,7 +68,7 @@ The AC-DC power supply was organized into six main stages:
 
 ![Half-wave rectifier with 10 uF capacitor](images/half_wave_filter_10uf.jpeg)
 
-This waveform shows the half-wave rectifier output with a 10 uF filter capacitor. The output displays visible ripple because the capacitor only recharges once per AC cycle.
+This waveform shows the half-wave rectifier output with a 10 uF filter capacitor. The output displays a visible ripple because the capacitor only recharges once per AC cycle.
 
 ### Half-Wave Ripple Reduction
 
