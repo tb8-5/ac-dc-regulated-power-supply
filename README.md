@@ -1,110 +1,117 @@
 # AC-DC Regulated Power Supply
 
-This project focused on building and characterizing regulated AC-DC power supply circuits. The lab used half-wave and full-wave rectifiers, filter capacitors, a Zener diode regulator, and an LM7805 linear regulator to convert a 12 VAC input into a more stable DC output.
-
-The project evaluated how each circuit stage improved output stability, including ripple reduction, voltage regulation, dropout behavior, load regulation, and efficiency. Measurements were taken using an oscilloscope and digital multimeter, then compared with hand calculations and NI Multisim simulations.
+This project implements and characterizes an AC-DC regulated power supply using diode rectification, capacitive filtering, and voltage regulation. The power supply converts a 12 VAC transformer input into a more stable DC output by progressing through half-wave rectification, full-wave rectification, filter capacitors, Zener regulation, and LM7805 linear regulation.
 
 ## Project Overview
 
-The goal of this project was to understand how an AC input signal can be converted into a regulated DC output through rectification, filtering, and voltage regulation.
+The circuit was built around the process of converting an AC input waveform into a regulated DC output. The lab began with half-wave and full-wave rectifier circuits using 1N4004 diodes. Filter capacitors were then added to reduce ripple voltage and improve output stability.
 
-The circuit progression started with simple diode rectifiers, then added capacitive filtering to reduce ripple. The design was then extended with Zener diode regulation and an LM7805 linear regulator to evaluate how different regulator approaches affect output voltage stability and efficiency.
+The design was extended with a Zener diode regulator and an LM7805 linear regulator to compare different methods of voltage regulation. Oscilloscope and DMM measurements were used to evaluate ripple behavior, voltage stability, load regulation, dropout behavior, and efficiency.
 
 ## Key Skills Demonstrated
 
 - AC-DC power conversion
 - Half-wave and full-wave rectifier analysis
+- Diode circuit behavior
 - Capacitive filtering and ripple reduction
 - Zener diode voltage regulation
 - LM7805 linear regulator characterization
-- Oscilloscope and DMM measurement
+- Oscilloscope waveform measurement
+- DMM voltage and current measurement
 - Ripple voltage and ripple frequency analysis
 - Dropout voltage and load regulation testing
 - Efficiency calculation
 - NI Multisim circuit simulation
-- Comparing theory, simulation, and measured results
+- Technical documentation
 
 ## Tools and Components
 
-### Equipment
-
 - 12 VAC transformer
-- DC power supply
-- Digital multimeter
-- Oscilloscope
-- Function generator
-- ECE lab kit
-
-### Components
-
 - 1N4004 diodes
-- Electrolytic capacitors
 - Zener diode
 - LM7805 linear regulator
+- Electrolytic capacitors
 - Load resistors
 - Sense resistor
+- Oscilloscope
+- Digital multimeter
+- Function generator
+- DC power supply
+- NI Multisim
 - Breadboard and jumper wires
 
-## Circuit Stages
+## Circuit Blocks
 
-### 1. Half-Wave Rectifier
+The AC-DC power supply was organized into six main stages:
 
-The first circuit used a single 1N4004 diode and load resistor to convert only the positive half-cycle of the AC waveform into a pulsating DC output. The diode blocked the negative half-cycle, producing a single-polarity waveform across the load.
+1. **Half-wave rectifier**  
+   A single 1N4004 diode allowed current to flow during the positive half-cycle of the transformer output while blocking the negative half-cycle.
 
-This stage demonstrated the basic operation of diode rectification and showed why a half-wave rectifier produces a large amount of ripple when used as a DC power supply.
+2. **Half-wave rectifier with filter capacitor**  
+   A capacitor was placed in parallel with the load resistor to charge near the waveform peak and discharge through the load between conduction intervals, reducing ripple.
 
-### 2. Half-Wave Rectifier with Filter Capacitor
+3. **Full-wave rectifier**  
+   A center-tapped transformer and two 1N4004 diodes produced two positive pulses per AC cycle, doubling the ripple frequency to 120 Hz.
 
-A filter capacitor was added in parallel with the load resistor. The capacitor charged near the peak of the rectified waveform and discharged through the load between peaks.
+4. **Full-wave rectifier with filter capacitor**  
+   A filter capacitor was added to smooth the full-wave rectified output. Because the capacitor was refreshed twice per cycle, less capacitance was needed to reduce ripple compared to the half-wave design.
 
-Different capacitance values were tested to show how increasing capacitance reduces ripple voltage. Larger capacitors discharge more slowly, which keeps the output voltage closer to the peak value between conduction intervals.
+5. **Zener diode regulator**  
+   A Zener diode regulator was added to clamp the load voltage near 5.1 V and reduce ripple. This improved voltage stability but had low efficiency because excess power was dissipated as heat.
 
-### 3. Full-Wave Rectifier
+6. **LM7805 linear regulator**  
+   The Zener regulator was replaced with an LM7805 linear regulator to produce a stable 5 V output. The regulator improved load regulation and efficiency compared to the Zener circuit.
 
-A center-tapped transformer and two 1N4004 diodes were used to create a full-wave rectifier. Unlike the half-wave rectifier, the full-wave rectifier used both halves of the AC input waveform.
+## Oscilloscope Results
 
-This doubled the ripple frequency from 60 Hz to 120 Hz, making the output easier to smooth with a filter capacitor.
+### Half-Wave Rectifier with Filter Capacitor
 
-### 4. Full-Wave Rectifier with Filter Capacitor
+![Half-wave rectifier with 10 uF capacitor](images/half_wave_filter_10uf.png)
 
-A filter capacitor was added to the full-wave rectifier. Since the capacitor was refreshed twice per AC cycle, the full-wave rectifier produced a smoother DC output than the half-wave rectifier with the same load.
+This waveform shows the half-wave rectifier output with a 10 uF filter capacitor. The output has visible ripple because the capacitor only recharges once per AC cycle.
 
-A design challenge was used to reduce ripple to approximately 1 V peak-to-peak or less. Hand calculations predicted the needed capacitance, and oscilloscope measurements were used to verify the results.
+### Half-Wave Ripple Reduction
 
-### 5. Zener Diode Regulator
+![Half-wave rectifier with 330 uF capacitor](images/half_wave_filter_330uf.png)
 
-A Zener diode regulator was added to the filtered full-wave rectifier circuit to hold the load voltage near 5.1 V. The Zener regulator improved voltage stability, but it was inefficient because excess voltage and current were dissipated as heat through the resistor and diode.
+This waveform shows the half-wave rectifier output with a larger 330 uF capacitor. The increased capacitance reduced ripple by allowing the capacitor to discharge more slowly through the load.
 
-The measured Zener regulator efficiency was approximately 3.1%.
+### Full-Wave Rectifier with Filter Capacitor
 
-### 6. LM7805 Linear Regulator
+![Full-wave rectifier with 200 uF capacitor](images/full_wave_filter_200uf.png)
 
-The Zener regulator was replaced with an LM7805 linear regulator to produce a regulated 5 V output. The LM7805 provided stronger voltage stability and better load regulation than the Zener regulator.
+This waveform shows the full-wave rectifier output with filtering. The capacitor is refreshed twice per AC cycle, reducing ripple compared to the half-wave rectifier.
 
-The regulator maintained an output near 5 V under different load conditions. Efficiency was still limited because the regulator dissipated excess input voltage as heat, but the LM7805 performed better than the Zener regulator under heavier load conditions.
+### Zener Regulator Output
 
-Measured LM7805 efficiency values included approximately 6.94% for a 1 kΩ load and 19.8% for a 100 Ω load.
+![Zener regulated output](images/zener_regulator_output.png)
+
+This waveform shows the Zener regulator holding the load voltage near 5.1 V while reducing ripple compared to the unregulated rectifier output.
+
+### LM7805 Regulated Output
+
+![LM7805 regulated output](images/lm7805_regulated_output.png)
+
+This waveform shows the LM7805 regulator producing a stable 5 V output under load.
 
 ## Key Results
 
 - Built and tested half-wave and full-wave rectifier circuits.
-- Verified that full-wave rectification reduces ripple compared to half-wave rectification.
+- Verified that the half-wave rectifier blocks the negative half-cycle of the transformer output.
+- Confirmed that full-wave rectification doubles the ripple frequency to 120 Hz.
 - Demonstrated that increasing filter capacitance reduces ripple voltage.
-- Used ripple voltage equations to estimate capacitor values for target ripple levels.
-- Compared oscilloscope waveforms with NI Multisim simulations.
-- Built and tested both Zener diode and LM7805 voltage regulation stages.
-- Measured regulator output voltage, ripple, dropout behavior, and efficiency.
-- Confirmed that the LM7805 provided a more stable regulated 5 V output than the Zener regulator.
-
-## What I Learned
-
-This project showed how each stage of a regulated power supply improves output quality. The rectifier converts AC into pulsating DC, the capacitor reduces ripple, and the regulator stabilizes the voltage under changing load conditions.
-
-The lab also showed the tradeoff between regulation and efficiency. Both the Zener diode and LM7805 regulator improved output stability, but both dissipated excess power as heat. The LM7805 provided stronger regulation and better efficiency under heavier load conditions, but still demonstrated the efficiency limitations of linear regulation.
+- Used a 330 uF capacitor to reduce half-wave ripple to approximately 1 V peak-to-peak.
+- Used two 100 uF capacitors in parallel to create 200 uF for the full-wave ripple reduction design challenge.
+- Compared experimental oscilloscope waveforms with NI Multisim simulations.
+- Built and tested a Zener diode regulator with an output near 5.1 V.
+- Measured Zener regulator efficiency at approximately 3.1%.
+- Built and tested an LM7805 linear regulator with a stable 5 V output.
+- Measured LM7805 efficiency at approximately 6.94% with a 1 kΩ load and 19.8% with a 100 Ω load.
+- Verified that the LM7805 provided better regulation and efficiency than the Zener regulator.
 
 ## Full Writeup
 
-[View the full PDF writeup](ECE%202201%20LAB%202.pdf)
+[View the full PDF writeup](writeup/ECE_2201_Lab_2_Diode_Applications.pdf)
 
 ## Contributors
 
