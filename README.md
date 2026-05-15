@@ -66,31 +66,31 @@ The AC-DC power supply was organized into six main stages:
 
 ### Half-Wave Rectifier with Filter Capacitor
 
-![Half-wave rectifier with 10 uF capacitor](images/half_wave_filter_10uf.png)
+![Half-wave rectifier with 10 uF capacitor](images/half_wave_filter_10uf.jpeg)
 
-This waveform shows the half-wave rectifier output with a 10 uF filter capacitor. The output has visible ripple because the capacitor only recharges once per AC cycle.
+This waveform shows the half-wave rectifier output with a 10 uF filter capacitor. The output displays visible ripple because the capacitor only recharges once per AC cycle.
 
 ### Half-Wave Ripple Reduction
 
-![Half-wave rectifier with 330 uF capacitor](images/half_wave_filter_330uf.png)
+![Half-wave rectifier with 330 uF capacitor](images/half_wave_filter_330uf.jpeg)
 
 This waveform shows the half-wave rectifier output with a larger 330 uF capacitor. The increased capacitance reduced ripple by allowing the capacitor to discharge more slowly through the load.
 
 ### Full-Wave Rectifier with Filter Capacitor
 
-![Full-wave rectifier with 200 uF capacitor](images/full_wave_filter_200uf.png)
+![Full-wave rectifier with 200 uF capacitor](images/full_wave_filter_200uf.jpeg)
 
 This waveform shows the full-wave rectifier output with filtering. The capacitor is refreshed twice per AC cycle, reducing ripple compared to the half-wave rectifier.
 
 ### Zener Regulator Output
 
-![Zener regulated output](images/zener_regulator_output.png)
+![Zener regulated output](images/zener_regulator_output.jpeg)
 
 This waveform shows the Zener regulator holding the load voltage near 5.1 V while reducing ripple compared to the unregulated rectifier output.
 
 ### LM7805 Regulated Output
 
-![LM7805 regulated output](images/lm7805_regulated_output.png)
+![LM7805 regulated output](images/lm7805_regulated_output.jpeg)
 
 This waveform shows the LM7805 regulator producing a stable 5 V output under load.
 
